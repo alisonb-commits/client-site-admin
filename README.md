@@ -11,62 +11,57 @@ Features
 
 Tech Stack
 
-Frontend
-React (Vite)
-CSS (custom glassmorphism UI)
-Fetch API
+- Frontend
+- React (Vite)
+- CSS (custom glassmorphism UI)
+- Fetch API
 
 Backend
 
-Node.js
-Express
-JWT authentication
-PostgreSQL
+- Node.js
+- Express
+- JWT authentication
+- PostgreSQL
 
 How It Works (High-level)
 
-Admin logs in using email/password
-
-Server validates credentials and issues a JWT
-
-JWT is stored client-side and attached to requests
-
-Protected API routes verify the token before allowing updates
-
-Content updates are persisted to PostgreSQL
-
-UI-based access control is handled client-side for UX,
+- Admin logs in using email/password
+- Server validates credentials and issues a JWT
+- JWT is stored client-side and attached to requests
+- Protected API routes verify the token before allowing updates
+- Content updates are persisted to PostgreSQL
+- UI-based access control is handled client-side for UX,
 security is enforced server-side via JWT verification.
 
 1) Server
-cd server
-npm install
-cp .env.example .env
-npm run dev
+- cd server
+- npm install
+- cp .env.example .env
+- npm run dev
 
 Server runs on:
-http://localhost:4000
+- http://localhost:4000
 
 2) Client
-cd client
-npm install
-npm run dev
+- cd client
+- npm install
+- npm run dev
 
 Client runs on:
-http://localhost:5173
+- http://localhost:5173
 
 server/.env
-PORT=4000
-JWT_SECRET=your_secret_here
-DATABASE_URL=postgres://user:password@localhost:5432/dbname
-.env is gitignored.
-Use .env.example as a reference.
+- PORT=4000
+- JWT_SECRET=your_secret_here
+- DATABASE_URL=postgres://user:password@localhost:5432/dbname
+- .env is gitignored.
+- Use .env.example as a reference.
 
 Security Notes
-All write operations are protected by JWT middleware
-JWT verification happens server-side
-Frontend token checks are for routing only (UX)
-No credentials or secrets are committed to the repository
+- All write operations are protected by JWT middleware
+- JWT verification happens server-side
+- Frontend token checks are for routing only (UX)
+- No credentials or secrets are committed to the repository
 
 Status
 
@@ -77,11 +72,11 @@ Status
 
 Possible Improvements / Roadmap
 
-Role-based access (admin / editor)
-Rich-text editor for content fields
-Toast notifications for save status
-Token refresh / httpOnly cookies
-Deployment (Vercel + Render / Fly.io)
+- Role-based access (admin / editor)
+- Rich-text editor for content fields
+- Toast notifications for save status
+- Token refresh / httpOnly cookies
+- Deployment (Vercel + Render / Fly.io)
 
 <img width="521" height="815" alt="Login" src="https://github.com/user-attachments/assets/3f19b21e-3c09-477a-aba3-241241724957" />
 <img width="515" height="883" alt="Login successful" src="https://github.com/user-attachments/assets/a1f3d320-0908-476f-a164-0ab55f5e5dbc" />

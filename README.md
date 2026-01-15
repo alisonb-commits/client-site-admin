@@ -23,7 +23,7 @@ Backend
 - JWT authentication
 - PostgreSQL
 
-How It Works (High-level)
+How It Works:
 
 - Admin logs in using email/password
 - Server validates credentials and issues a JWT
@@ -77,6 +77,12 @@ Possible Improvements / Roadmap
 - Toast notifications for save status
 - Token refresh / httpOnly cookies
 - Deployment (Vercel + Render / Fly.io)
+
+UPDATE:
+- [ ] Refactor dashboard into reusable components
+- [ ] Add keyboard shortcuts + accessibility
+- [ ] Extract content editor logic into custom hook
+
 
 <img width="521" height="815" alt="Login" src="https://github.com/user-attachments/assets/3f19b21e-3c09-477a-aba3-241241724957" />
 <img width="515" height="883" alt="Login successful" src="https://github.com/user-attachments/assets/a1f3d320-0908-476f-a164-0ab55f5e5dbc" />

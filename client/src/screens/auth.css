@@ -1,0 +1,256 @@
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+.authPage {
+  min-height: 100svh; /* prevents mobile scroll issues */
+  display: grid;
+  grid-template-columns: minmax(340px, 520px) 1fr;
+  background: #0b0e14;
+  color: #e9eef7;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden; /* CRITICAL: stops scroll */
+}
+
+/* =========================
+   LEFT / RIGHT PANELS
+========================= */
+
+.authLeft {
+  display: grid;
+  place-items: center;
+  padding: 32px 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.authRight {
+  position: relative;
+  overflow: hidden;
+  background: #2a2a2a;
+}
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.authGlow {
+  position: absolute;
+  inset: -20vmax; /* reduced to avoid bleed */
+  background:
+    radial-gradient(circle at 20% 20%, rgba(110, 231, 255, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(255, 140, 180, 0.14), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(160, 120, 255, 0.14), transparent 40%);
+  filter: blur(20px);
+  opacity: 0.9;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.authCard {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(18, 24, 36, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden; /* stops inner glow bleed */
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.authHeader {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.authBadge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.authHeader h1 {
+  font-size: 28px;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.authHeader p {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.authForm {
+  display: grid;
+  gap: 12px;
+}
+
+.authLabel {
+  display: grid;
+  gap: 6px;
+}
+
+.authLabel span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.authInput {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(8, 10, 16, 0.7);
+  color: #e9eef7;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.authInput::placeholder {
+  color: rgba(233, 238, 247, 0.35);
+}
+
+.authInput:focus {
+  border-color: rgba(110, 231, 255, 0.35);
+  box-shadow: 0 0 0 4px rgba(110, 231, 255, 0.10);
+}
+
+/* =========================
+   PASSWORD FIELD (FIXED)
+========================= */
+
+.authPwRow {
+  position: relative;
+  width: 100%;
+}
+
+.authPwRow .authInput {
+  padding-right: 56px; /* reduced + proportional */
+}
+
+.authPwToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e9eef7;
+
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.authPwToggle:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.authButton {
+  margin-top: 6px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(110, 231, 255, 0.18);
+  color: #e9eef7;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.authButton:hover {
+  background: rgba(110, 231, 255, 0.24);
+}
+
+.authButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.authMessage {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.authMessage.isError {
+  border-color: rgba(255, 95, 105, 0.35);
+  background: rgba(255, 95, 105, 0.10);
+}
+
+.authMessage.isSuccess {
+  border-color: rgba(90, 255, 165, 0.28);
+  background: rgba(90, 255, 165, 0.10);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.authFooter {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+.authFooter .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 820px) {
+  .authPage {
+    grid-template-columns: 1fr;
+  }
+
+  .authRight {
+    display: none;
+  }
+}

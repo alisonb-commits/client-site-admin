@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./dashboard.css";
 
 const API = "http://localhost:4000";
 
@@ -20,10 +21,12 @@ export default function AdminDashboard() {
   }, []);
 
   if (!localStorage.getItem("token")) {
-    return <div style={{ padding: 24 }}>not logged in</div>;
+    return <div className="adminPage"><div className="adminWrap">not logged in</div></div>;
   }
 
-  if (!content) return <div style={{ padding: 24 }}>loading…</div>;
+  if (!content) {
+    return <div className="adminPage"><div className="adminWrap">loading…</div></div>;
+  }
 
   async function save(key) {
     setStatus(`saving ${key}…`);
@@ -52,66 +55,81 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div style={{ padding: 24, fontFamily: "system-ui", maxWidth: 800 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h2>admin dashboard</h2>
-        <button onClick={logout}>logout</button>
+    <div className="adminPage">
+      <div className="adminGlow" />
+
+      <div className="adminWrap">
+        <div className="adminHeaderCard">
+          <div>
+            <h2 className="adminTitle">admin dashboard</h2>
+            <p className="adminSub">edit content and save to database</p>
+          </div>
+          <button className="adminLogout" onClick={logout}>logout</button>
+        </div>
+
+        <div className="adminCard">
+          <div className="adminGrid">
+            <div className="adminField">
+              <label className="adminLabel">home hero title</label>
+              <input
+                className="adminInput"
+                value={content["home.hero.title"] || ""}
+                onChange={(e) =>
+                  setContent({ ...content, ["home.hero.title"]: e.target.value })
+                }
+              />
+              <button className="adminSave" onClick={() => save("home.hero.title")}>
+                save
+              </button>
+            </div>
+
+            <div className="adminField">
+              <label className="adminLabel">home hero subtitle</label>
+              <input
+                className="adminInput"
+                value={content["home.hero.subtitle"] || ""}
+                onChange={(e) =>
+                  setContent({ ...content, ["home.hero.subtitle"]: e.target.value })
+                }
+              />
+              <button className="adminSave" onClick={() => save("home.hero.subtitle")}>
+                save
+              </button>
+            </div>
+
+            <div className="adminField">
+              <label className="adminLabel">about text</label>
+              <textarea
+                className="adminTextarea"
+                rows={5}
+                value={content["about.text"] || ""}
+                onChange={(e) =>
+                  setContent({ ...content, ["about.text"]: e.target.value })
+                }
+              />
+              <button className="adminSave" onClick={() => save("about.text")}>
+                save
+              </button>
+            </div>
+
+            <div className="adminField">
+              <label className="adminLabel">services list</label>
+              <input
+                className="adminInput"
+                value={content["services.list"] || ""}
+                onChange={(e) =>
+                  setContent({ ...content, ["services.list"]: e.target.value })
+                }
+              />
+              <button className="adminSave" onClick={() => save("services.list")}>
+                save
+              </button>
+            </div>
+
+            {status ? <pre className="adminStatus">{status}</pre> : null}
+          </div>
+        </div>
       </div>
-
-      <p style={{ opacity: 0.8 }}>edit content and save to database</p>
-
-      <div style={{ display: "grid", gap: 16, marginTop: 20 }}>
-        <div>
-          <label>home hero title</label>
-          <input
-            style={{ width: "100%", marginTop: 6 }}
-            value={content["home.hero.title"] || ""}
-            onChange={(e) => setContent({ ...content, ["home.hero.title"]: e.target.value })}
-          />
-          <button style={{ marginTop: 8 }} onClick={() => save("home.hero.title")}>
-            save
-          </button>
-        </div>
-
-        <div>
-          <label>home hero subtitle</label>
-          <input
-            style={{ width: "100%", marginTop: 6 }}
-            value={content["home.hero.subtitle"] || ""}
-            onChange={(e) => setContent({ ...content, ["home.hero.subtitle"]: e.target.value })}
-          />
-          <button style={{ marginTop: 8 }} onClick={() => save("home.hero.subtitle")}>
-            save
-          </button>
-        </div>
-
-        <div>
-          <label>about text</label>
-          <textarea
-            style={{ width: "100%", marginTop: 6 }}
-            rows={5}
-            value={content["about.text"] || ""}
-            onChange={(e) => setContent({ ...content, ["about.text"]: e.target.value })}
-          />
-          <button style={{ marginTop: 8 }} onClick={() => save("about.text")}>
-            save
-          </button>
-        </div>
-
-        <div>
-          <label>services list</label>
-          <input
-            style={{ width: "100%", marginTop: 6 }}
-            value={content["services.list"] || ""}
-            onChange={(e) => setContent({ ...content, ["services.list"]: e.target.value })}
-          />
-          <button style={{ marginTop: 8 }} onClick={() => save("services.list")}>
-            save
-          </button>
-        </div>
-      </div>
-
-      {status ? <pre style={{ marginTop: 16 }}>{status}</pre> : null}
     </div>
   );
 }

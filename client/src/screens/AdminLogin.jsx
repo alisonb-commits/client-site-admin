@@ -4,8 +4,8 @@ import "./auth.css";
 const API = "http://localhost:4000";
 
 export default function AdminLogin({ onLogin }) {
-  const [email, setEmail] = useState("admin@test.com");
-  const [password, setPassword] = useState("password123");
+  const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | error | success
   const [showPw, setShowPw] = useState(false);
@@ -72,24 +72,26 @@ export default function AdminLogin({ onLogin }) {
             <label className="authLabel">
               <span>email</span>
               <input
-                className="authInput"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                autoComplete="username"
-              />
+  className="authInput"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  type="email"
+  placeholder="admin@test.com"
+/>
+
             </label>
 
             <label className="authLabel">
               <span>password</span>
               <div className="authPwRow">
                 <input
-                  className="authInput"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type={showPw ? "text" : "password"}
-                  autoComplete="current-password"
-                />
+  className="authInput"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  type={showPw ? "text" : "password"}
+  placeholder="your password"
+/>
+
                 <button
                   className="authPwToggle"
                   type="button"

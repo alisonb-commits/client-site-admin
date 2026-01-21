@@ -83,6 +83,20 @@ UPDATE:
 - [ ] Add keyboard shortcuts + accessibility
 - [ ] Extract content editor logic into custom hook
 
+## Testing
+
+This project includes basic automated tests to validate core behavior:
+
+- Backend (Jest + Supertest)
+  - Ensures protected routes reject missing or invalid JWT tokens
+- Frontend (Vitest)
+  - Verifies content editor dirty-state tracking logic
+
+![Backend tests passing](<img width="608" height="104" alt="backend-test-pass" src="https://github.com/user-attachments/assets/b1908bc4-7260-41a3-96c6-5be3f707f4a7" />
+<img width="917" height="149" alt="frontend passed" src="https://github.com/user-attachments/assets/51d78c91-93d2-4f9c-a349-383ca023ce8d" />)
+
+
+
 <img width="743" height="866" alt="Updated admin dashboard" src="https://github.com/user-attachments/assets/00d4da43-0b68-459b-a87f-6c80704ad0a0" />
 <img width="377" height="290" alt="saved state" src="https://github.com/user-attachments/assets/1424ede6-907c-430f-96fe-3066710511b1" />
 <img width="521" height="815" alt="Login" src="https://github.com/user-attachments/assets/3f19b21e-3c09-477a-aba3-241241724957" />

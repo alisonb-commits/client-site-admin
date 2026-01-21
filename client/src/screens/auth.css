@@ -8,7 +8,14 @@
   grid-template-columns: minmax(340px, 520px) 1fr;
   background: #0b0e14;
   color: #e9eef7;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   overflow: hidden; /* CRITICAL: stops scroll */
 }
 
@@ -38,9 +45,21 @@
   position: absolute;
   inset: -20vmax; /* reduced to avoid bleed */
   background:
-    radial-gradient(circle at 20% 20%, rgba(110, 231, 255, 0.18), transparent 35%),
-    radial-gradient(circle at 80% 30%, rgba(255, 140, 180, 0.14), transparent 35%),
-    radial-gradient(circle at 50% 80%, rgba(160, 120, 255, 0.14), transparent 40%);
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(110, 231, 255, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(255, 140, 180, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(160, 120, 255, 0.14),
+      transparent 40%
+    );
   filter: blur(20px);
   opacity: 0.9;
 }
@@ -123,7 +142,7 @@
   width: 100%;
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(8, 10, 16, 0.7);
   color: #e9eef7;
   outline: none;
@@ -136,7 +155,7 @@
 
 .authInput:focus {
   border-color: rgba(110, 231, 255, 0.35);
-  box-shadow: 0 0 0 4px rgba(110, 231, 255, 0.10);
+  box-shadow: 0 0 0 4px rgba(110, 231, 255, 0.1);
 }
 
 /* =========================
@@ -161,7 +180,7 @@
 
   padding: 0 10px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.06);
   color: #e9eef7;
 
@@ -170,7 +189,7 @@
 }
 
 .authPwToggle:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* =========================
@@ -181,7 +200,7 @@
   margin-top: 6px;
   height: 46px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(110, 231, 255, 0.18);
   color: #e9eef7;
   font-weight: 600;
@@ -206,18 +225,18 @@
   padding: 10px 12px;
   border-radius: 12px;
   font-size: 13px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.06);
 }
 
 .authMessage.isError {
   border-color: rgba(255, 95, 105, 0.35);
-  background: rgba(255, 95, 105, 0.10);
+  background: rgba(255, 95, 105, 0.1);
 }
 
 .authMessage.isSuccess {
   border-color: rgba(90, 255, 165, 0.28);
-  background: rgba(90, 255, 165, 0.10);
+  background: rgba(90, 255, 165, 0.1);
 }
 
 /* =========================

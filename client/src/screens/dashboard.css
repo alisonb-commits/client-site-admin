@@ -1,0 +1,451 @@
+/* dashboard.css */
+
+:root {
+  --bg: #0b0e14;
+  --text: #e9eef7;
+  --muted: rgba(233, 238, 247, 0.72);
+  --panel: rgba(18, 24, 36, 0.72);
+  --border: rgba(255, 255, 255, 0.1);
+  --field: rgba(8, 10, 16, 0.62);
+  --accent: rgba(110, 231, 255, 0.18);
+  --accentHover: rgba(110, 231, 255, 0.24);
+  --danger: rgba(255, 95, 105, 0.35);
+  --success: rgba(90, 255, 165, 0.28);
+}
+
+.adminPage {
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* subtle background glow like login */
+.adminGlow {
+  position: absolute;
+  inset: -30vmax;
+  background: radial-gradient(
+      circle at 18% 18%,
+      rgba(110, 231, 255, 0.14),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 82% 20%,
+      rgba(255, 140, 180, 0.12),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(160, 120, 255, 0.1),
+      transparent 45%
+    );
+  filter: blur(22px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.adminWrap {
+  position: relative;
+  z-index: 1;
+
+  /* wider, but still readable */
+  max-width: 1240px;
+
+  /* keep it centered */
+  margin: 0 auto;
+
+  /* slightly more breathing room on desktop */
+  padding: 48px clamp(18px, 4vw, 48px);
+
+  display: grid;
+  gap: 22px;
+}
+
+.adminCard {
+  padding: 28px;
+}
+
+/* header card */
+.adminHeaderCard {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.adminTitle {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+
+.adminSub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.adminLogout {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.adminLogout:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* content card */
+.adminCard {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.adminGrid {
+  display: grid;
+  gap: 16px;
+}
+
+/* each editable block */
+.adminField {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 12, 18, 0.35);
+}
+
+.adminLabel {
+  display: block;
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.adminInput,
+.adminTextarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--field);
+  color: var(--text);
+  outline: none;
+}
+
+.adminTextarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.adminInput:focus,
+.adminTextarea:focus {
+  border-color: rgba(110, 231, 255, 0.35);
+  box-shadow: 0 0 0 4px rgba(110, 231, 255, 0.1);
+}
+
+/* save button */
+.adminSave {
+  margin-top: 10px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.adminSave:hover {
+  background: var(--accentHover);
+}
+
+.adminStatus {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* NEW: sidebar layout  */
+
+.adminLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.adminSidebar {
+  background: rgba(18, 24, 36, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.adminSidebarTitle {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 6px 8px 10px;
+}
+
+.adminNavItem {
+  width: 100%;
+  text-align: left;
+  border-radius: 16px;
+  padding: 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.adminNavItem:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.adminNavItem.isActive {
+  background: rgba(110, 231, 255, 0.1);
+  border-color: rgba(110, 231, 255, 0.22);
+}
+
+.adminNavMain {
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.adminNavSub {
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.25;
+}
+
+.adminMain {
+  min-width: 0;
+}
+
+/* section header inside the card */
+.adminSectionHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.adminSectionTitle {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: lowercase;
+}
+
+.adminSectionDesc {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+/* small status pill (replaces the big status box) */
+.adminPill {
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+/* NEW: dirty state / field header */
+
+.adminFieldTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.adminDirty {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0.85;
+}
+
+/* disabled save button */
+.adminSave:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ====== NEW: editor + preview columns ====== */
+
+.adminMainGrid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 18px;
+  align-items: start;
+}
+
+.adminPreview {
+  display: grid;
+  gap: 18px;
+}
+
+.adminPreviewCard {
+  background: rgba(18, 24, 36, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.adminPreviewHead {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.adminPreviewTitle {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.adminPreviewSub {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.adminPreviewBody {
+  display: grid;
+  gap: 10px;
+}
+
+.adminPreviewKicker {
+  font-size: 12px;
+  opacity: 0.7;
+  text-transform: lowercase;
+}
+
+.adminPreviewH1 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.adminPreviewP {
+  font-size: 13px;
+  opacity: 0.82;
+  line-height: 1.5;
+}
+
+.preWrap {
+  white-space: pre-wrap;
+}
+
+.adminPreviewHint {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.adminPreviewChip {
+  display: inline-flex;
+  margin: 4px 6px 0 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+}
+
+.adminMeta {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.adminMetaRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 12, 18, 0.35);
+}
+
+.adminMetaKey {
+  font-size: 12px;
+  opacity: 0.75;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.adminMetaVal {
+  font-size: 12px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* responsive: stack preview below editor */
+@media (max-width: 1100px) {
+  .adminMainGrid {
+    grid-template-columns: 1fr;
+  }
+  .adminMetaKey {
+    max-width: 100%;
+  }
+}
+
+/* responsive: stack sidebar above main */
+@media (max-width: 920px) {
+  .adminLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .adminWrap {
+    padding: 26px 14px;
+  }
+  .adminHeaderCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
